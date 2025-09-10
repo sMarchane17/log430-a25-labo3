@@ -31,7 +31,11 @@ docker network create labo03-network
 ```
 
 ### 3. Préparez l'environnement de développement
-Suivez les mêmes étapes que dans le laboratoire 01.
+Suivez les mêmes étapes que dans le laboratoire 02. Ensuite, créez et lancez le conteneur Docker.
+```bash
+docker build
+docker compose up -d
+```
 
 ### 4. Installez Postman
 Installez Postman et importez la collection disponible dans /docs/collections.

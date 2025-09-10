@@ -1,6 +1,6 @@
 -- Create database (optional)
-CREATE DATABASE IF NOT EXISTS labo02_db;
-USE labo02_db;
+CREATE DATABASE IF NOT EXISTS labo03_db;
+USE labo03_db;
 
 -- Users table
 DROP TABLE IF EXISTS users;

@@ -8,9 +8,9 @@ services:
     environment:
       DB_HOST: mysql        
       DB_PORT: 3306
-      DB_USER: labo02
-      DB_PASSWORD: labo02
-      DB_NAME: labo02_db
+      DB_USER: labo03
+      DB_PASSWORD: labo03
+      DB_NAME: labo03_db
       REDIS_HOST: redis
       REDIS_PORT: 6379
       REDIS_DB: 0
@@ -26,9 +26,9 @@ services:
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: labo02_db
-      MYSQL_USER: labo02
-      MYSQL_PASSWORD: labo02
+      MYSQL_DATABASE: labo03_db
+      MYSQL_USER: labo03
+      MYSQL_PASSWORD: labo03
     networks:
       - labo03-network
     ports:
