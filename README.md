@@ -12,9 +12,9 @@
 - Maîtriser la gestion d'état et de cache avec Redis dans un contexte d'API moderne.
 - Comprendre l'utilisation des jointures SQL avec SQLAlchemy pour optimiser les requêtes de base de données.
 
-## ⚙️ Setup
+## ⚙️ Setup 
 
-Dans ce laboratoire, nous poursuivrons le développement de notre application de gestion de magasin. Dans l'aspect architectural, nous transformons maintenant notre application monolithique en API avec [Flask](https://www.geeksforgeeks.org/python/flask-tutorial/) pour lui donner plus de flexibilité. Dans l'aspect fonctionnel, nous ajoutons la gestion du stock des articles, en complément de la gestion des commandes, des articles et des utilisateurs.
+Dans ce laboratoire, nous poursuivrons le développement de notre application de gestion de magasin. Dans l'aspect architectural, nous transformons maintenant notre application monolithique en API avec [Flask](https://www.geeksforgeeks.org/python/flask-tutorial/) pour lui donner plus de flexibilité. Dans l'aspect fonctionnel, nous ajoutons la gestion du stock des articles, en complément de la gestion des commandes, des articles et des utilisateurs. L'application comporte désormais deux domaines : les commandes et les stocks, qui sont clairement identifiés dans la structure de répertoires (`/src/orders` et `/src/stocks`). 
 
 > ⚠️ IMPORTANT : Avant de commencer le setup et les activités, veuillez lire la documentation architecturale dans le répertoire `/docs/arc42/docs.pdf`.
 

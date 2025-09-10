@@ -5,7 +5,7 @@ Auteurs : Gabriel C. Ullmann, Fabio Petrillo, 2025
 """
 
 from flask import jsonify
-from stocks.commands.write_product import insert_product, delete_product
+from stocks.commands.write_product import add_product, delete_product
 from stocks.queries.read_product import get_product_by_id
 
 def create_product(request):
@@ -15,7 +15,7 @@ def create_product(request):
     sku = payload.get('sku')
     price = payload.get('price')
     try:
-        product_id = insert_product(name, sku, price)
+        product_id = add_product(name, sku, price)
         return jsonify({'product_id': product_id}), 201
     except Exception as e:
         return jsonify({'error': str(e)}), 500

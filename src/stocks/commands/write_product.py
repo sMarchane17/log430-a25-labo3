@@ -7,7 +7,7 @@ Auteurs : Gabriel C. Ullmann, Fabio Petrillo, 2025
 from stocks.models.product import Product
 from db import get_sqlalchemy_session
 
-def insert_product(name: str, sku: str, price: float):
+def add_product(name: str, sku: str, price: float):
     """Insert product with items in MySQL"""
     if not name or not sku or not price or price <= 0:
         raise ValueError("Cannot create product. A product must have a name, SKU and price.")

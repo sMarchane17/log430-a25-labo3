@@ -7,7 +7,7 @@ Auteurs : Gabriel C. Ullmann, Fabio Petrillo, 2025
 from orders.models.user import User
 from db import get_sqlalchemy_session
 
-def insert_user(name: str, email: str):
+def add_user(name: str, email: str):
     """Insert user with items in MySQL"""
     if not name or not email:
         raise ValueError("Cannot create user. A user must have name and email.")

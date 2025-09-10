@@ -11,7 +11,7 @@ from orders.models.order_item import OrderItem
 from stocks.commands.write_stock import check_in_items_to_stock, check_out_items_from_stock, update_stock_redis
 from db import get_sqlalchemy_session, get_redis_conn
 
-def insert_order(user_id: int, items: list):
+def add_order(user_id: int, items: list):
     """Insert order with items in MySQL, keep Redis in sync"""
     if not items:
         raise ValueError("Cannot create order. An order must have 1 or more items.")
@@ -64,7 +64,7 @@ def insert_order(user_id: int, items: list):
 
         # Insert order into Redis
         update_stock_redis(order_items, '-')
-        insert_order_to_redis(order_id, user_id, total_amount, items)
+        add_order_to_redis(order_id, user_id, total_amount, items)
         return order_id
 
     except Exception as e:
@@ -99,7 +99,7 @@ def delete_order(order_id: int):
     finally:
         session.close()
 
-def insert_order_to_redis(order_id, user_id, total_amount, items):
+def add_order_to_redis(order_id, user_id, total_amount, items):
     """Insert order to Redis"""
     r = get_redis_conn()
     r.hset(

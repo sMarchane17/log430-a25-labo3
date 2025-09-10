@@ -5,7 +5,7 @@ Auteurs : Gabriel C. Ullmann, Fabio Petrillo, 2025
 """
 
 from flask import jsonify
-from orders.commands.write_user import insert_user, delete_user
+from orders.commands.write_user import add_user, delete_user
 from orders.queries.read_user import get_user_by_id
 
 def create_user(request):
@@ -14,7 +14,7 @@ def create_user(request):
     name = payload.get('name')
     email = payload.get('email')
     try:
-        user_id = insert_user(name, email)
+        user_id = add_user(name, email)
         return jsonify({'user_id': user_id}), 201
     except Exception as e:
         return jsonify({'error': str(e)}), 500

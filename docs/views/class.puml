@@ -32,9 +32,9 @@
     }
 
     class WriteOrder {
-        + insert_order(Order) : int
+        + add_order(Order) : int
         + delete_order(int) : int
-        + insert_order_to_redis(Order) : void
+        + add_order_to_redis(Order) : void
         + delete_order_from_redis(int) : void
     }
 
