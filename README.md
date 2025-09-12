@@ -67,7 +67,7 @@ Exécutez vos tests pour vous assurer que le flux de stock fonctionne correcteme
 
 > 💡 **Question 1** : Quel nombre d'unités de stock pour votre article avez-vous obtenu à la fin du test ? Et pour l'article avec `id=2` ? Veuillez inclure la sortie de votre Postman pour illustrer votre réponse.
 
-### 2. Créer un rapport de stock
+### 2. Créez un rapport de stock
 
 Le directeur du magasin q'utilise notre application a besoin de connaître l'état des articles dans le stock. Dans `src/queries/read_stock.py`, il y a une méthode `get_stock_for_all_products`, qui est utilisée par l'endpoint `/stocks/reports/overview` pour donner les stocks de chaque article, mais il n'y a pas beaucoup d'informations. Ajoutez les colonnes `name`, `sku` et `price` de l'article en utilisant la méthode [join à SQLAlchemy](https://docs.sqlalchemy.org/en/14/orm/query.html#sqlalchemy.orm.Query.join). Cela vous permettra de joindre l'information du tableau `ProductStock` avec `Product`.
 
