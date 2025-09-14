@@ -3,7 +3,6 @@ Orders (write-only model)
 SPDX - License - Identifier: LGPL - 3.0 - or -later
 Auteurs : Gabriel C. Ullmann, Fabio Petrillo, 2025
 """
-
 import json
 from orders.models.order import Order
 from stocks.models.product import Product
@@ -22,7 +21,6 @@ def add_order(user_id: int, items: list):
     try:
         products_query = session.query(Product).filter(Product.id.in_(product_ids)).all()
         price_map = {product.id: product.price for product in products_query}
-        
         total_amount = 0
         order_items = []
         

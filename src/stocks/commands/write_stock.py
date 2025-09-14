@@ -103,6 +103,10 @@ def _populate_redis_from_mysql(redis_conn):
         stocks = session.execute(
             text("SELECT product_id, quantity FROM stocks")
         ).fetchall()
+
+        if not len(stocks):
+            print("No stocks to populate")
+            return
         
         pipeline = redis_conn.pipeline()
         

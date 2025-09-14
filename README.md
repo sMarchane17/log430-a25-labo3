@@ -69,13 +69,13 @@ Exécutez vos tests pour vous assurer que le flux de stock fonctionne correcteme
 
 ### 2. Créez un rapport de stock
 
-Le directeur du magasin q'utilise notre application a besoin de connaître l'état des articles dans le stock. Dans `src/queries/read_stock.py`, il y a une méthode `get_stock_for_all_products`, qui est utilisée par l'endpoint `/stocks/reports/overview` pour donner les stocks de chaque article, mais il n'y a pas beaucoup d'informations. Ajoutez les colonnes `name`, `sku` et `price` de l'article en utilisant la méthode [join à SQLAlchemy](https://docs.sqlalchemy.org/en/14/orm/query.html#sqlalchemy.orm.Query.join). Cela vous permettra de joindre l'information du tableau `ProductStock` avec `Product`.
+Le directeur du magasin q'utilise notre application a besoin de connaître l'état des articles dans le stock. Dans `src/queries/read_stock.py`, il y a une méthode `get_stock_for_all_products`, qui est utilisée par l'endpoint `/stocks/reports/overview` pour donner les stocks de chaque article, mais il n'y a pas beaucoup d'informations. Ajoutez les colonnes `name`, `sku` et `price` de l'article en utilisant la méthode [join à SQLAlchemy](https://docs.sqlalchemy.org/en/14/orm/query.html#sqlalchemy.orm.Query.join). Cela vous permettra de joindre l'information du tableau `Stock` avec `Product`.
 
 > 💡 **Question 2** : Décrivez l'utilisation de la méthode join dans ce cas. Utilisez les méthodes telles que décrites à `Simple Relationship Joins` et `Joins to a Target with an ON Clause` dans la documentation SQLAlchemy pour ajouter les colonnes demandés dans cette activité. Veuillez inclure le code pour illustrer votre réponse.
 
 ### 3. Utilisez l'endpoint GraphQL
 
-Dans l'activité 3, nous avons ajouté de nouveaux colonnes `Product` à un endpoint `ProductStock`. Si à l'avenir nous avons de nouveaux colonnes dans `Product` ou `ProductStock`, ou le besoin de conserver différents endpoints avec des colonnes distincts, il faudra que nous créions différents endpoints. Pour nous aider à mieux gérer l'hétérogénéité des endpoints, on peut créer un endpoint GraphQL.
+Dans l'activité 3, nous avons ajouté de nouveaux colonnes `Product` à un endpoint `Stock`. Si à l'avenir nous avons de nouveaux colonnes dans `Product` ou `Stock`, ou le besoin de conserver différents endpoints avec des colonnes distincts, il faudra que nous créions différents endpoints. Pour nous aider à mieux gérer l'hétérogénéité des endpoints, on peut créer un endpoint GraphQL.
 
 GraphQL est un langage qui nous permet de donner la possibilité aux clients qui utilisent notre API REST de continuer à utiliser les endpoints avec les noms et méthodes fixés, mais en passant les noms des colonnes qu'ils veulent. Par exemple :
 
