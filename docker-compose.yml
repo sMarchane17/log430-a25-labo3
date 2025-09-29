@@ -5,21 +5,11 @@ services:
       - .:/app
     ports:
       - "5000:5000"
-    environment:
-      DB_HOST: mysql        
-      DB_PORT: 3306
-      DB_USER: labo03
-      DB_PASSWORD: labo03
-      DB_NAME: labo03_db
-      REDIS_HOST: redis
-      REDIS_PORT: 6379
-      REDIS_DB: 0
     networks:
       - labo03-network
     depends_on:
       - mysql
       - redis
-
 
   mysql:
     image: mysql:8
@@ -31,8 +21,6 @@ services:
       MYSQL_PASSWORD: labo03
     networks:
       - labo03-network
-    ports:
-      - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
       - ./db-init:/docker-entrypoint-initdb.d
@@ -42,8 +30,6 @@ services:
     restart: unless-stopped
     networks:
       - labo03-network
-    ports:
-      - "6379:6379"
 
 networks:
   labo03-network:

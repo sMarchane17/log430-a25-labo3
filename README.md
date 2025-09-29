@@ -38,7 +38,7 @@ docker compose up -d
 ```
 
 ### 4. Installez Postman
-Installez Postman et importez la collection disponible dans /docs/collections.
+[Installez Postman](https://learning.postman.com/docs/getting-started/installation/installation-and-updates/) et [importez la collection](https://www.geeksforgeeks.org/websites-apps/how-to-import-export-collections-in-postman/) disponible dans `/docs/collections`. 
 
 ### 5. Comprenez les principes REST
 À ce stade, notre application est une API qui respecte presque tous les principes REST définis par Roy Fielding dans sa thèse de doctorat (2000) :
@@ -46,7 +46,7 @@ Installez Postman et importez la collection disponible dans /docs/collections.
 - ✅ **Client–Serveur** : séparation claire entre client et serveur.
 - ✅ **Système en couches** : notre application comporte trois couches (front-end, back-end, base de données).
 - ✅ **Sans état (stateless)** : chaque requête est indépendante, le serveur ne « se souvient » pas des requêtes précédentes.
-- ⛔ **Cache** : il n'y a pas de mécanisme de cache côté client (nous utilisons Postman, mais cela serait possible avec un vrai front-end).
+- ⛔ **Cache** : il n'y a pas de mécanisme de cache côté client (nous utilisons Postman, mais cela serait possible avec un front-end).
 - ✅ **Interface uniforme** : les endpoints sont bien nommés et utilisent les bonnes méthodes HTTP (POST /orders, GET /products/:id, etc.).
 
 Une API qui respecte l'ensemble de ces principes est appelée une API RESTful. Pour l'instant, nous travaillons uniquement avec une API REST.
@@ -55,7 +55,7 @@ Une API qui respecte l'ensemble de ces principes est appelée une API RESTful. P
 
 ### 1. Testez le processus de stock complet
 
-Dans `src/tests/test_store_manager.py`, dans la méthode `test_stock_flow()`, écrivez les smoke tests pour que nous puissions observer comment le processus de stock fonctionne, et aussi nous assurer qu'il fonctionne de manière consistante. Testez les endpoints suivants :
+Dans `src/tests/test_store_manager.py`, dans la méthode `test_stock_flow()`, écrivez un [smoke test](https://www.techtarget.com/searchsoftwarequality/definition/smoke-testing) pour que nous puissions observer comment le processus de stock fonctionne, et aussi nous assurer qu'il fonctionne de manière consistante. Testez les endpoints suivants :
 
 - Créez un article (`POST /products`)
 - Ajoutez 5 unités au stock de cet article (`POST /products_stocks`)
@@ -90,7 +90,7 @@ GraphQL est un langage qui nous permet de donner la possibilité aux clients qui
 
 L'endpoint GraphQL est accessible via `POST /stocks/graphql`.
 
-> 💡 **Question 3** : Quels résultats avez-vous obtenus en utilisant l’endpoint POST /stocks/graphql avec la requête suggérée ? Veuillez joindre la sortie de votre requête dans Postman afin d’illustrer votre réponse.
+> 💡 **Question 3** : Quels résultats avez-vous obtenus en utilisant l’endpoint `POST /stocks/graphql` avec la requête suggérée ? Veuillez joindre la sortie de votre requête dans Postman afin d’illustrer votre réponse.
 
 ### 4. Ajoutez plus d'informations à l'endpoint GraphQL
 
@@ -98,12 +98,12 @@ La correspondance entre les colonnes GraphQL et les données est définie dans `
 
 > 💡 **Question 4** : Quelles lignes avez-vous changez dans `update_stock_redis`? Veuillez joindre du code afin d’illustrer votre réponse.
 
-> 💡 **Question 5** : Quels résultats avez-vous obtenus en utilisant l’endpoint POST /stocks/graphql avec les améliorations ? Veuillez joindre la sortie de votre requête dans Postman afin d’illustrer votre réponse.
+> 💡 **Question 5** : Quels résultats avez-vous obtenus en utilisant l’endpoint `POST /stocks/graphql` avec les améliorations ? Veuillez joindre la sortie de votre requête dans Postman afin d’illustrer votre réponse.
 
 ### 5. Créez un autre conteneur pour effectuer un test de communication
 Pour simuler un scénario plus proche de la réalité, exécutez `scripts/supplier_app.py` dans un conteneur séparé (comme si c'était sur le serveur de notre fournisseur). Si vous avez besoin de précisions supplémentaires, référez-vous au diagramme `docs/views/deployment.puml`. Vous pouvez vous appuyer sur les `Dockerfile` et le `docker-compose.yml` déjà présents dans le répertoire `scripts`.
 
-> 💡 **Question 6** : Examinez attentivement le fichier `docker-compose.yml` du répertoire `scripts`, ainsi que celui situé à la racine du projet. Qu’ont-ils en commun ? Par quel mécanisme ces conteneurs peuvent-ils communiquer entre eux ? Veuillez joindre du code YAML afin d’illustrer votre réponse.
+> 💡 **Question 6** : Examinez attentivement le fichier `docker-compose.yml` du répertoire `scripts`, ainsi que celui situé à la racine du projet. Qu’ont-ils en commun ? Par quel mécanisme ces conteneurs peuvent-ils communiquer entre eux ? Veuillez joindre du code YML afin d’illustrer votre réponse.
 
 ## 📦 Livrables
 

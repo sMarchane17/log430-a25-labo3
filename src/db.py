@@ -27,6 +27,6 @@ def get_redis_conn():
 def get_sqlalchemy_session():
     """Get an SQLAlchemy ORM session using env variables"""
     connection_string = f'mysql+mysqlconnector://{config.DB_USER}:{config.DB_PASS}@{config.DB_HOST}:{config.DB_PORT}/{config.DB_NAME}'
-    engine = create_engine(connection_string)
+    engine = create_engine(connection_string, connect_args={'auth_plugin': 'caching_sha2_password'})
     Session = sessionmaker(bind=engine)
     return Session()
