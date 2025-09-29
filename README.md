@@ -105,6 +105,9 @@ Pour simuler un scénario plus proche de la réalité, exécutez `scripts/suppli
 
 > 💡 **Question 6** : Examinez attentivement le fichier `docker-compose.yml` du répertoire `scripts`, ainsi que celui situé à la racine du projet. Qu’ont-ils en commun ? Par quel mécanisme ces conteneurs peuvent-ils communiquer entre eux ? Veuillez joindre du code YML afin d’illustrer votre réponse.
 
+## Conseils de débogage
+Si vous rencontrez des difficultés dans la réalisation des activités et que vous souhaitez voir plus en détail ce qui se passe dans les bases de données, vous pouvez utiliser [MySQL Workbench](https://www.mysql.com/products/community/) et [redis-cli](https://redis.io/docs/latest/operate/oss_and_stack/install/install-stack/docker/#connect-with-redis-cli) pour vérifier si les enregistrements sont correctement ajoutés/supprimés. Cependant, l'installation de ces logiciels n'est pas obligatoire pour la réalisation des activités.
+
 ## 📦 Livrables
 
 - Un fichier .zip contenant l'intégralité du code source du projet Labo 03.
