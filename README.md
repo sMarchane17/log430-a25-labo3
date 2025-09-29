@@ -57,11 +57,12 @@ Une API qui respecte l'ensemble de ces principes est appelée une API RESTful. P
 
 Dans `src/tests/test_store_manager.py`, dans la méthode `test_stock_flow()`, écrivez un [smoke test](https://www.techtarget.com/searchsoftwarequality/definition/smoke-testing) pour que nous puissions observer comment le processus de stock fonctionne, et aussi nous assurer qu'il fonctionne de manière consistante. Testez les endpoints suivants :
 
-- Créez un article (`POST /products`)
-- Ajoutez 5 unités au stock de cet article (`POST /products_stocks`)
-- Vérifiez le stock, votre article devra avoir 5 unités dans le stock (`GET /stocks/:id`)
-- Faites une commande de l'article que vous avez créé, 2 unités (`POST /orders`)
-- Vérifiez le stock encore une fois (`GET /stocks/:id`)
+1. Créez un article (`POST /products`)
+2. Ajoutez 5 unités au stock de cet article (`POST /products_stocks`)
+3. Vérifiez le stock, votre article devra avoir 5 unités dans le stock (`GET /stocks/:id`)
+4. Faites une commande de 2 unités de l'article que vous avez créé  (`POST /orders`)
+5. Vérifiez le stock encore une fois (`GET /stocks/:id`)
+6. **Étape extra**: supprimez la commande et vérifiez le stock de nouveau. Le stock devrait augmenter après la suppression de la commande.
 
 Exécutez vos tests pour vous assurer que le flux de stock fonctionne correctement.
 
@@ -101,7 +102,9 @@ La correspondance entre les colonnes GraphQL et les données est définie dans `
 > 💡 **Question 5** : Quels résultats avez-vous obtenus en utilisant l’endpoint `POST /stocks/graphql` avec les améliorations ? Veuillez joindre la sortie de votre requête dans Postman afin d’illustrer votre réponse.
 
 ### 5. Créez un autre conteneur pour effectuer un test de communication
-Pour simuler un scénario plus proche de la réalité, exécutez `scripts/supplier_app.py` dans un conteneur séparé (comme si c'était sur le serveur de notre fournisseur). Si vous avez besoin de précisions supplémentaires, référez-vous au diagramme `docs/views/deployment.puml`. Vous pouvez vous appuyer sur les `Dockerfile` et le `docker-compose.yml` déjà présents dans le répertoire `scripts`.
+Pour simuler un scénario plus proche de la réalité, exécutez `scripts/supplier_app.py` dans un conteneur séparé (comme si c'était sur le serveur de notre fournisseur). Observez les résultats. Si vous avez besoin de précisions supplémentaires, référez-vous au diagramme `docs/views/deployment.puml`. Vous pouvez vous appuyer sur les `Dockerfile` et le `docker-compose.yml` déjà présents dans le répertoire `scripts`.
+
+**Extra**: modifiez le code GraphQL dans la variable `TEST_PAYLOAD` dans `scripts/supplier_app.py` pour inclure les colonnes `name`, `sku` et `price` de l'activité 4.
 
 > 💡 **Question 6** : Examinez attentivement le fichier `docker-compose.yml` du répertoire `scripts`, ainsi que celui situé à la racine du projet. Qu’ont-ils en commun ? Par quel mécanisme ces conteneurs peuvent-ils communiquer entre eux ? Veuillez joindre du code YML afin d’illustrer votre réponse.
 

@@ -20,7 +20,7 @@ def test_health(client):
     assert result.get_json() == {'status':'ok'}
 
 def test_stock_flow(client):
-    # - Créez un article (`POST /products`)
+    # 1. Créez un article (`POST /products`)
     product_data = {'name': 'Some Item', 'sku': '12345', 'price': 99.90}
     response = client.post('/products',
                           data=json.dumps(product_data),
@@ -30,8 +30,9 @@ def test_stock_flow(client):
     data = response.get_json()
     assert data['product_id'] > 0 
 
-    # - Ajoutez 5 unités au stock de cet article (`POST /products_stocks`)
-    # - Vérifiez le stock, votre article devra avoir 5 unités dans le stock (`GET /stocks/:id`)
-    # - Faites une commande de l'article que vous avez créé, 2 unités (`POST /orders`)
-    # - Vérifiez le stock encore une fois (`GET /stocks/:id`)
+    # 2. Ajoutez 5 unités au stock de cet article (`POST /products_stocks`)
+    # 3. Vérifiez le stock, votre article devra avoir 5 unités dans le stock (`GET /stocks/:id`)
+    # 4. Faites une commande de l'article que vous avez créé, 2 unités (`POST /orders`)
+    # 5. Vérifiez le stock encore une fois (`GET /stocks/:id`)
+    # 6. Étape extra: supprimez la commande et vérifiez le stock de nouveau. Le stock devrait augmenter après la suppression de la commande.
     assert "Le test n'est pas encore là" == 1
