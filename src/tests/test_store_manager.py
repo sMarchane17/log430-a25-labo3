@@ -30,7 +30,7 @@ def test_stock_flow(client):
     data = response.get_json()
     assert data['product_id'] > 0 
 
-    # 2. Ajoutez 5 unités au stock de cet article (`POST /products_stocks`)
+    # 2. Ajoutez 5 unités au stock de cet article (`POST /stocks`)
     # 3. Vérifiez le stock, votre article devra avoir 5 unités dans le stock (`GET /stocks/:id`)
     # 4. Faites une commande de l'article que vous avez créé, 2 unités (`POST /orders`)
     # 5. Vérifiez le stock encore une fois (`GET /stocks/:id`)
