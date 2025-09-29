@@ -13,7 +13,13 @@ from sqlalchemy.sql import func
 def get_order_by_id(order_id):
     """Get order by ID from Redis"""
     r = get_redis_conn()
-    return r.hgetall(f"order:{order_id}")
+    raw_order = r.hgetall(f"order:{order_id}")
+    order = {}
+    for key, value in raw_order.items():
+        found_key = key.decode('utf-8') if isinstance(key, bytes) else key
+        found_value = value.decode('utf-8') if isinstance(value, bytes) else value
+        order[found_key] = found_value
+    return order
 
 def get_highest_spending_users_mysql():
     """Get report of highest spending users from MySQL"""
