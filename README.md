@@ -108,4 +108,4 @@ Pour simuler un scénario plus proche de la réalité, exécutez `scripts/suppli
 ## 📦 Livrables
 
 - Un fichier .zip contenant l'intégralité du code source du projet Labo 03.
-- Un rapport en .pdf répondant aux 6 questions présentées dans ce document. Il est obligatoire d'illustrer vos réponses avec du code ou des captures d'écran/terminal.
+- Un rapport en .pdf répondant aux questions présentées dans ce document. Il est obligatoire d'illustrer vos réponses avec du code ou des captures d'écran/terminal.

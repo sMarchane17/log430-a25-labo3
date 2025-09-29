@@ -1,6 +1,8 @@
 services:
   supplier_app:
     build: .
+    environment:
+      - PYTHONUNBUFFERED=1
     volumes:
       - .:/app
     networks:

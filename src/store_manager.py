@@ -77,13 +77,13 @@ def get_stocks(product_id):
 
 @app.get('/orders/reports/highest-spenders')
 def get_orders_highest_spending_users():
-    """Get list of highest speding users, order by total expenditure"""
+    """Get list of highest speding users, ordered by total expenditure"""
     rows = get_report_highest_spending_users()
     return jsonify(rows)
 
 @app.get('/orders/reports/best-sellers')
 def get_orders_report_best_selling_products():
-    """Get list of best selling products, order by number of orders"""
+    """Get list of best selling products, ordered by number of orders"""
     rows = get_report_best_selling_products()
     return jsonify(rows)
 
