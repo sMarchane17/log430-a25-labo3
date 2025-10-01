@@ -288,17 +288,17 @@
 			"name": "Observability",
 			"item": [
 				{
-					"name": "/health",
+					"name": "/health-check",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/health",
+							"raw": "{{baseURL}}/health-check",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"health"
+								"health-check"
 							]
 						}
 					},
