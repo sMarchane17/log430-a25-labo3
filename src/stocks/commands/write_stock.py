@@ -73,24 +73,39 @@ def update_stock_redis(order_items, operation):
     stock_keys = list(r.scan_iter("stock:*"))
     if stock_keys:
         pipeline = r.pipeline()
-        session = get_sqlalchemy_session
         for item in order_items:
             if hasattr(item, 'product_id'):
                 product_id = item.product_id
                 quantity = item.quantity
+                name = item.name
+                sku = item.sku
+                price = item.price
             else:
                 product_id = item['product_id']
                 quantity = item['quantity']
-            # TODO: ajoutez plus d'information sur l'article
-            current_stock = r.hget(f"stock:{product_id}", "quantity")
+                name = item['name']
+                sku = item['sku']
+                price = item['price']
+                
+            k = f"stock:{product_id}"
+            current_stock = r.hget(k, "quantity", "name")
             current_stock = int(current_stock) if current_stock else 0
+
+            name = r.hget(k, "name")
+            sku = r.hget(k, "sku")
+            price = r.hget(k, "price")
             
+            map = {"quantity": int(new_quantity)}
+            map["name"] = name
+            map["sku"] = sku
+            map["price"] = price
+
             if operation == '+':
                 new_quantity = current_stock + quantity
             else:  
                 new_quantity = current_stock - quantity
             
-            pipeline.hset(f"stock:{product_id}", "quantity", new_quantity)
+            pipeline.hset(k, map)
             
         
         pipeline.execute()

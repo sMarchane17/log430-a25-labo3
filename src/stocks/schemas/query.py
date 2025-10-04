@@ -6,6 +6,10 @@ from db import get_redis_conn
 class Query(ObjectType):       
     product = graphene.Field(Product, id=String(required=True))
     stock_level = Int(product_id=String(required=True))
+    quantity = graphene.Int()
+    name = graphene.String()
+    sku = graphene.String()
+    price = graphene.Float()
     
     def resolve_product(self, info, id):
         """ Create an instance of Product based on stock info for that product that is in Redis """
@@ -19,13 +23,11 @@ class Query(ObjectType):
         if product_data:
             return Product(
                 id=id,
-                name=f"Product {id}",
-                quantity=int(product_data['quantity']),
-                nom = nom_b,
+                name=nom_b,
+                quantity=int(quantite_b),
                 sku=sku_b,
                 price=price_b,
             )
-        return None
     
     def resolve_stock_level(self, info, product_id):
         """ Retrieve stock quantity from Redis """
